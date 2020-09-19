@@ -1,6 +1,10 @@
 # RaspberryPiScripts
 Collection of scripts running on pi
 
+## Installed Apps
+
+* [Plex Server](https://www.youtube.com/watch?v=zRj9mrwISZ8)
+
 ## OrganiseTorrent.sh
 
 This command is kicked off from incron where the path its watching and the filename is passed in.
