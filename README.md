@@ -24,9 +24,10 @@ This command is kicked off from incron where the path its watching and the filen
     * Setup permissions `sudo nano /etc/incron.allow`
         * Add `pi` and save the file 
 * Edit Incron config `incrontab -e`
-   * Add `/mnt/torrents/completed IN_MOVED_TO     sudo bash /usr/local/bin/incron-cmds/organise-torrent.sh $@ $#`
+   * Add `/mnt/torrents/completed IN_ALL_EVENTS,recursive=false     sudo bash /usr/local/bin/incron-cmds/organise-torrent.sh $@ $#`. IN_MOVE and IN_MOVED_FROM just didnt work even though those events were logged. 
        * Watch location is `/mnt/torrents/completed`
-       * The type of event to watch is the file being moved to that location `IN_MOVED_TO`
+       * The type of event to watch is the file being moved to that location `IN_ALL_EVENTS`
+       * Just check the root of the path, not all the files in it `recursive=false`
        * Command to run when the file is detected `sudo bash /usr/local/bin/incron-cmds/organise-torrent.sh`. The args are:
            * `s@` which is the path of the file
            * `s#` which is the filename 
