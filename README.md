@@ -34,9 +34,9 @@ This command is kicked off from incron where the path its watching and the filen
     * Setup permissions `sudo nano /etc/incron.allow`
         * Add `pi` and save the file 
 * Edit Incron config `incrontab -e`
-   * Add `/mnt/torrents/completed IN_ALL_EVENTS,recursive=false     sudo bash /usr/local/bin/incron-cmds/organise-torrent.sh $@ $#`. IN_MOVE and IN_MOVED_FROM just didnt work even though those events were logged. 
+   * Add `/mnt/torrents/completed IN_CLOSE_NOWRITE,recursive=false,loopable=true sudo bash /usr/local/bin/incron-cmds/organise-torrent.sh $@ $#` 
        * Watch location is `/mnt/torrents/completed`
-       * The type of event to watch is the file being moved to that location `IN_ALL_EVENTS`
+       * The type of event to watch is the file being moved to that location and finished `IN_CLOSE_NOWRITE`. This didnt work without the sleep. Using `loopable=true` I thought would wait until finished but didnt work without the sleep too.
        * Just check the root of the path, not all the files in it `recursive=false`
        * Command to run when the file is detected `sudo bash /usr/local/bin/incron-cmds/organise-torrent.sh`. The args are:
            * `s@` which is the path of the file
