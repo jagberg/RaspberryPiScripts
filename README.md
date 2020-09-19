@@ -30,7 +30,7 @@ This command is kicked off from incron where the path its watching and the filen
 
 #### Setup Incron File Watcher
 
-* Install incron `sudo apt-get install incron`
+* Install [incron](https://github.com/ar-/incron) `sudo apt-get install incron`
     * Setup permissions `sudo nano /etc/incron.allow`
         * Add `pi` and save the file 
 * Edit Incron config `incrontab -e`
