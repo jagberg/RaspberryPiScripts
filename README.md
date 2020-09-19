@@ -1,4 +1,4 @@
-# RaspberryPiScripts
+# Raspberry Pi Scripts
 Collection of scripts running on pi
 
 ## Installed Apps
@@ -11,6 +11,16 @@ Collection of scripts running on pi
         * Setup file permissions to the /mnt/torrents folder created 
             * `cd /mnt` and then `sudo chmod -R 777 torrents/`
 * [Plex Server](https://www.youtube.com/watch?v=zRj9mrwISZ8)
+
+### Kodi Setup
+
+Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=251645)
+* Run `sudo apt-get uninstall kodi`
+* Update your memory split as Kodi needs a min of 160MB
+    * Run `sudo raspi-config`
+    * Go to **Advanced Settings** -> **Memory Split** -> Change to a min of 160MB, Ive done 320MB
+
+> :warning: **If using VNC**: You cant run Kodi through it. See the [issue](https://www.raspberrypi.org/forums/viewtopic.php?t=255148)
 
 ## OrganiseTorrent.sh
 
