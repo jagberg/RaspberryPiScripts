@@ -3,6 +3,7 @@ Collection of scripts running on pi
 
 ## Installed Apps
 
+* [Setup PrivateInternetAccess (OpenVPN), Deluge, Samba](https://techwiztime.com/article/best-raspberry-pi-torrentbox)
 * [Plex Server](https://www.youtube.com/watch?v=zRj9mrwISZ8)
 
 ## OrganiseTorrent.sh
