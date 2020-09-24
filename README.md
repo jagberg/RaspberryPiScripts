@@ -14,6 +14,7 @@ Collection of scripts running on pi
 
 ### Kodi Setup
 
+#### Raspbian Buster
 Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=251645)
 * Run `sudo apt-get uninstall kodi`
 * Update your memory split as Kodi needs a min of 160MB
@@ -21,7 +22,15 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
     * Go to **Advanced Settings** 
         * -> **Memory Split** -> Change to a min of 160MB, Ive done 320MB
         * -> **Resolution** -> Change to 1024x768. 1920x1024 resulted in a black screen through HDMI. You get a black screen in VNC but this time with a cursor.
-        
+
+#### LibreElec Installation
+* Plug in HDMI into the port next to the power port on the Raspberry Pi
+* Install from LibreElec website onto an SD card
+* Open `config.txt` in the SD Card and add the following otherwise you will just get a black screen when connecting to HDMI through the TV
+    ```
+    hdmi_group=2
+    hdmi_mode=16
+    ```
 > :warning: **If using VNC**: You cant run Kodi through it. See the [issue](https://www.raspberrypi.org/forums/viewtopic.php?t=255148)
 
 ## OrganiseTorrent.sh
