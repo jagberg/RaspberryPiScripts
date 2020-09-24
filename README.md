@@ -18,8 +18,10 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
 * Run `sudo apt-get uninstall kodi`
 * Update your memory split as Kodi needs a min of 160MB
     * Run `sudo raspi-config`
-    * Go to **Advanced Settings** -> **Memory Split** -> Change to a min of 160MB, Ive done 320MB
-
+    * Go to **Advanced Settings** 
+        * -> **Memory Split** -> Change to a min of 160MB, Ive done 320MB
+        * -> **Resolution** -> Change to 1024x768. 1920x1024 resulted in a black screen through HDMI. You get a black screen in VNC but this time with a cursor.
+        
 > :warning: **If using VNC**: You cant run Kodi through it. See the [issue](https://www.raspberrypi.org/forums/viewtopic.php?t=255148)
 
 ## OrganiseTorrent.sh
