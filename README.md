@@ -33,6 +33,39 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
     ```
 > :warning: **If using VNC**: You cant run Kodi through it. See the [issue](https://www.raspberrypi.org/forums/viewtopic.php?t=255148)
 
+##### Mapping to Windows Share
+* Follow: https://libreelec.wiki/how_to/mount_network_share
+* On Windows create a new **Share** directory. My computer network address is **192.168.1.21**
+* Add a new local windows account (not a Microsoft login one)
+    * Username: `libreeelec`
+    * Password: `<yeh right>`
+* `mkdir /storage/files`
+* `nano /storage/.config/system.d/storage-files.mount`
+* Use the following settings
+    ```
+    [Unit]
+    Description=cifs mount script
+    Requires=network-online.service
+    After=network-online.service
+    Before=kodi.service
+    
+    [Mount]
+    What=//192.168.1.21/Share
+    Where=/storage/files
+    Options=username=libreelec,password=<yeh right>,rw,vers=2.1
+    Type=cifs
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+* Enable the mount: `systemctl enable storage-files.mount`
+* `reboot`
+* Check if its working: `systemctl status storage-files.mount`
+
+##### Netflix Installation
+* The option to use username/password didnt work for me so I had to use the Auth Key option instead.
+[Login with Auth Key](https://github.com/CastagnaIT/plugin.video.netflix/wiki/Login-with-Authentication-key)
+
 ## OrganiseTorrent.sh
 
 This command is kicked off from incron where the path its watching and the filename is passed in.
