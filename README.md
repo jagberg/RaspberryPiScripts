@@ -62,6 +62,37 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
 * `reboot`
 * Check if its working: `systemctl status storage-files.mount`
 
+##### Mapping to Synology NAS
+> :warning: Use v2.0 Samba. 
+> :warning: Use _ not - for the storage folder name and mount file if you use one otherwise it wont work. 
+* Follow: https://libreelec.wiki/how_to/mount_network_share
+* My NAS is configured for Samba not NFS and is using v2.0 not v2.1. 
+* Add a new Synology readonly account
+    * Username: `raspberry_user`
+    * Password: `<yeh right>`
+* `mkdir /storage/justin_nas`
+* `nano /storage/.config/system.d/storage-storage_nas.mount`
+* Use the following settings
+    ```
+    [Unit]
+    Description=cifs mount script
+    Requires=network-online.service
+    After=network-online.service
+    Before=kodi.service
+    
+    [Mount]
+    What=//192.168.1.5/video
+    Where=/storage/justin_nas
+    Options=username=raspberry_user,password=<yeh right>,rw,vers=2.0
+    Type=cifs
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+* Enable the mount: `systemctl enable storage-justin_nas.mount`
+* `reboot`
+* Check if its working: `systemctl status storage-justin_nas.mount`
+
 ##### Netflix Installation
 * The option to use username/password didnt work for me so I had to use the Auth Key option instead.
 [Login with Auth Key](https://github.com/CastagnaIT/plugin.video.netflix/wiki/Login-with-Authentication-key)
