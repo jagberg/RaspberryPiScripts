@@ -34,6 +34,7 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
     # This will ensure sound goes through and works consistently. It was working now and again otherwise.
     hdmi_drive=2 
     ```
+    * [Sound not working article - hdmi_drive](https://forum.libreelec.tv/thread/20305-no-hdmi-audio/)
 * Once you can SSH you can change the `config.txt` using
     ```
     mount -o remount,rw /flash
