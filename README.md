@@ -31,6 +31,11 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
     hdmi_group=2
     hdmi_mode=16
     ```
+* Once you can SSH you can change the `config.txt` using
+    ```
+    mount -o remount,rw /flash
+    nano /flash/config.txt
+    ```
 > :warning: **If using VNC**: You cant run Kodi through it. See the [issue](https://www.raspberrypi.org/forums/viewtopic.php?t=255148)
 
 ##### Mapping to Windows Share
