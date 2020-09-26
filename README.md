@@ -30,6 +30,9 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
     ```
     hdmi_group=2
     hdmi_mode=16
+    
+    # This will ensure sound goes through and works consistently. It was working now and again otherwise.
+    hdmi_drive=2 
     ```
 * Once you can SSH you can change the `config.txt` using
     ```
