@@ -29,7 +29,7 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
 * Open `config.txt` in the SD Card and add the following otherwise you will just get a black screen when connecting to HDMI through the TV
     ```
     hdmi_group=2
-    hdmi_mode=16
+    hdmi_mode=39
     
     # This will ensure sound goes through and works consistently. It was working now and again otherwise.
     hdmi_drive=2 
