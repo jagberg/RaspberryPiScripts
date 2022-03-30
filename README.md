@@ -140,3 +140,23 @@ It will:
 TODO:
 * Use a proper logger
 * Change log timezone from UTC to local
+
+# Upgrading to larger SD card
+
+You can use tools to backup/restore onto a larger SD card however the space will be allocated identically so you cant use the extra space you have without doing a few other things. Options are
+* Use AOMEI Backupper - Clone feature. Backup/restore retains the size. You will need to insert both your SD cards into your laptop.
+* New Install with Backup/restore Kodi + settings
+   * Install LibreELEC on new larger SD card
+      * Insert new formatted SD card into PC
+      * Download LibreELEC installer
+      * Download LibreELEC image
+      * Install new image on SD card
+   * Backup old Kodi + Settings 
+      * On raspberry pi using the old SD card
+         * Insert USB drive (with large enough size)
+         * Go to Kodi -> Settings -> LibreELEC -> System 
+            * Click Backup and choose the USB drive
+   * Restore old Kodi + Settings on new larger SD with LibreELEC fresh install 
+      * Turn off Raspberry pi, insert new LibreELEC image SD card
+         * Go to Kodi -> Settings -> LibreELEC -> System 
+            * Click on Restore 
