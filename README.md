@@ -23,7 +23,7 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
         * -> **Memory Split** -> Change to a min of 160MB, Ive done 320MB
         * -> **Resolution** -> Change to 1024x768. 1920x1024 resulted in a black screen through HDMI. You get a black screen in VNC but this time with a cursor.
 
-#### LibreElec Installation
+#### LibreElec Installation (v9)
 * Plug in HDMI into the port next to the power port on the Raspberry Pi
 * Install from LibreElec website onto an SD card
 * Open `config.txt` in the SD Card and add the following otherwise you will just get a black screen when connecting to HDMI through the TV
@@ -41,6 +41,25 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
     nano /flash/config.txt
     ```
 > :warning: **If using VNC**: You cant run Kodi through it. See the [issue](https://www.raspberrypi.org/forums/viewtopic.php?t=255148)
+
+#### LibreElec Installation (v10)
+See v9 however run the following
+   ```
+   mount -o remount,rw /flash
+   nano /flash/distroconfig.txt
+   ```
+Add the following
+   ```
+   disable_fw_kms_setup=0 # Changed from 1 to 0
+   
+   # Add the following
+    hdmi_group=2
+    hdmi_mode=39
+   ```
+   ```
+   nano /flash/cmdline.txt and just add 
+      drm.edid_firmware=HDMI-A-1:edid/edid-HDMI-A-1.bin video=HDMI-A-1:D
+   ```
 
 ##### Mapping to Windows Share
 * Follow: https://libreelec.wiki/how_to/mount_network_share
