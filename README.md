@@ -14,7 +14,7 @@ Collection of scripts running on pi
 
 ### Kodi Setup
 
-#### Raspbian Buster
+#### Raspbian Buster (not sure its needed with LibreElec (22 Feb 2023))
 Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=251645)
 * Run `sudo apt-get uninstall kodi`
 * Update your memory split as Kodi needs a min of 160MB
@@ -27,6 +27,7 @@ Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](h
 * Plug in HDMI into the port next to the power port on the Raspberry Pi
 * Install from LibreElec website onto an SD card
 * Open `config.txt` in the SD Card and add the following otherwise you will just get a black screen when connecting to HDMI through the TV
+> :warning: After a LibreElec upgrade you need to re-apply these settings. Even with 10.0.4 where it says it doesnt read these settings in the config.txt, when I did a clean install and applied these it then started working. It would reboot when the channel was on whereas without these you had to boot when the HDMI was on another channel first and then switch to it.
     ```
     hdmi_group=2
     hdmi_mode=39
