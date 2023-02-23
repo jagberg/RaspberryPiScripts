@@ -14,7 +14,7 @@ Collection of scripts running on pi
 
 ### Kodi Setup
 
-#### Raspbian Buster (not sure its needed with LibreElec (22 Feb 2023))
+#### Raspbian Buster (not sure its needed with LibreElec (22 Feb 2023)) - Not applicable for the Kodi install
 Follow the instructions in [[Guide] Kodi on Raspberry Pi OS / Raspbian Buster](https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=251645)
 * Run `sudo apt-get uninstall kodi`
 * Update your memory split as Kodi needs a min of 160MB
@@ -63,33 +63,33 @@ Add the following
    ```
 
 ##### Mapping to Windows Share
-* Follow: https://libreelec.wiki/how_to/mount_network_share
-* On Windows create a new **Share** directory. My computer network address is **192.168.1.21**
-* Add a new local windows account (not a Microsoft login one)
-    * Username: `libreeelec`
-    * Password: `<yeh right>`
-* `mkdir /storage/files`
-* `nano /storage/.config/system.d/storage-files.mount`
-* Use the following settings
-    ```
-    [Unit]
-    Description=cifs mount script
-    Requires=network-online.service
-    After=network-online.service
-    Before=kodi.service
-    
-    [Mount]
-    What=//192.168.1.21/Share
-    Where=/storage/files
-    Options=username=libreelec,password=<yeh right>,rw,vers=2.1
-    Type=cifs
-    
-    [Install]
-    WantedBy=multi-user.target
-    ```
-* Enable the mount: `systemctl enable storage-files.mount`
-* `reboot`
-* Check if its working: `systemctl status storage-files.mount`
+* Follow: https://libreelec.wiki/how_to/mount_network_share.
+   * On Windows create a new **Share** directory. My computer network address is **192.168.1.26**
+   * Add a new local windows account (not a Microsoft login one)
+       * Username: `libreeelec`
+       * Password: `<yeh right>`
+   * `mkdir /storage/winshare`
+   * `nano /storage/.config/system.d/storage-winshare.mount`
+   * Use the following settings
+       ```
+       [Unit]
+       Description=cifs mount script
+       Requires=network-online.service
+       After=network-online.service
+       Before=kodi.service
+
+       [Mount]
+       What=//192.168.1.21/kodishare
+       Where=/storage/winshare
+       Options=username=libreelec,password=<yeh right>,rw,vers=2.1
+       Type=cifs
+
+       [Install]
+       WantedBy=multi-user.target
+       ```
+   * Enable the mount: `systemctl enable storage-winshare.mount`
+   * `reboot`
+   * Check if its working: `systemctl status storage-winshare.mount`
 
 ##### Mapping to Synology NAS
 > :warning: Use v2.0 Samba. 
