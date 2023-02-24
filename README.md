@@ -68,6 +68,15 @@ Add the following
    * `reboot`
    * Check if its working: `systemctl status storage-winshare.mount`
 
+#### Logitech Harmony Remote Setup with Bluetooth
+Follow https://lieven.kks36.be/2020/07/02/remote-control-kodi-over-bluetooth-with-a-harmony-hub/ 
+* On your phone add new **Entertainment** device with the following details
+  * **Manufacturer**: Microsoft
+  * **Model**: Kodi
+* Go through the steps of adding an Activity (you need to do these to enable bluetooth to connect so dont skip this)
+* On Kodi -> Settings -> LibreElec -> Bluetooth - Add Logitech Bluetooth Keyboard
+* Continue steps on your phone
+
 #### Raspberry Pi Scripts
 Collection of scripts running on pi
 
