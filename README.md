@@ -1,17 +1,3 @@
-# Raspberry Pi Scripts
-Collection of scripts running on pi
-
-## Installed Apps
-
-* [Setup PrivateInternetAccess (OpenVPN), Deluge, Samba](https://techwiztime.com/article/best-raspberry-pi-torrentbox)
-    * PIA Config
-        * Might need to setup permission `chmod +w -R openvpn`
-        * Rename "AU Sydney" to "AUSydney" because when it had the space it didnt recognise the right name in `/etc/default/openvpn` `AUTOSTART="AUSydney"`
-    * Deluge Config
-        * Setup file permissions to the /mnt/torrents folder created 
-            * `cd /mnt` and then `sudo chmod -R 777 torrents/`
-* [Plex Server](https://www.youtube.com/watch?v=zRj9mrwISZ8)
-
 ### Kodi Setup
 
 #### LibreElec Installation (v9)
@@ -81,6 +67,20 @@ Add the following
    * Enable the mount: `systemctl enable storage-winshare.mount`
    * `reboot`
    * Check if its working: `systemctl status storage-winshare.mount`
+
+#### Raspberry Pi Scripts
+Collection of scripts running on pi
+
+##### Installed Apps
+
+* [Setup PrivateInternetAccess (OpenVPN), Deluge, Samba](https://techwiztime.com/article/best-raspberry-pi-torrentbox)
+    * PIA Config
+        * Might need to setup permission `chmod +w -R openvpn`
+        * Rename "AU Sydney" to "AUSydney" because when it had the space it didnt recognise the right name in `/etc/default/openvpn` `AUTOSTART="AUSydney"`
+    * Deluge Config
+        * Setup file permissions to the /mnt/torrents folder created 
+            * `cd /mnt` and then `sudo chmod -R 777 torrents/`
+* [Plex Server](https://www.youtube.com/watch?v=zRj9mrwISZ8)
 
 ##### Mapping to Synology NAS
 > :warning: Use v2.0 Samba. 
